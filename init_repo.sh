@@ -1,25 +1,25 @@
 #!/usr/bin/bash
 
 USAGE() {
-	echo "We need 2 arguments a commit message and a repo name"
+	echo "init_repo.sh [REPO] [COMMIT MESSAGE]"
 	echo ${#}
 
 }
 
-REPO=$1
-MSG=$2
+REPO="$1"
+MSG="$2"
+DIR=`pwd`
+echo ${REPO}
+echo ${MESSAGE}
+echo ${DIR}
 
-if [[ ${#} -eq 2 ]]
+
+
+if (( $# == 2 ))
 then
-
-	echo "initializing our local git repo ${REPO}"
-	echo "My new repo ${REPO}"
-	git init
-	git add *
+	git init 
+	git add .
 	git commit -m "${MSG}"
 	git remote add origin "${REPO}"
 	git push -u origin master
-
-else 
-	USAGE
 fi
