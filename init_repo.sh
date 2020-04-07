@@ -15,7 +15,7 @@ echo ${MESSAGE}
 if (( $# == 2 ))
 then
 	git init 
-	echo "New Repository" >> README.MD
+	echo "New Repository" > README.MD
 	git add .
 	git commit -m "${MSG}"
 	git remote add origin "${REPO}"
