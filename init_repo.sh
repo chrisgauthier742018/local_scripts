@@ -7,16 +7,15 @@ USAGE() {
 
 REPO="$1"
 MSG="$2"
-DIR=`pwd`
 echo ${REPO}
 echo ${MESSAGE}
-echo ${DIR}
 
 
 
 if (( $# == 2 ))
 then
 	git init 
+	echo "New Repository" >> README.MD
 	git add .
 	git commit -m "${MSG}"
 	git remote add origin "${REPO}"
