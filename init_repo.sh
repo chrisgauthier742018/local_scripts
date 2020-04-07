@@ -2,7 +2,6 @@
 
 USAGE() {
 	echo "init_repo.sh [REPO] [COMMIT MESSAGE]"
-	echo ${#}
 
 }
 
@@ -22,4 +21,6 @@ then
 	git commit -m "${MSG}"
 	git remote add origin "${REPO}"
 	git push -u origin master
+else
+	USAGE
 fi
