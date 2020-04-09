@@ -1,14 +1,18 @@
 #!/usr/bin/bash
 
-while [[ $user != "none" ]]
+while [[ $user != "quit" ]]
 do
-	read -p "Enter a username, or none to exit: " user
-	grep $user /etc/passwd
-	if [[ $? == 0 ]]
+	read -p "Enter a username, or quit to exit: " user
+	grep $user /etc/passwd 
+	if [[ $? -eq 0 ]]
 	then
-		echo "${user} exists"
-	else
-		echo "Adding user"
+		echo "user ${user} exists"
+		
+	elif [[ $user == "quit" ]]
+	then
+		exit
+	else 
+		echo "adding user: ${user}"
 		adduser $user
 	fi
 done
